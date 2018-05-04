@@ -203,12 +203,15 @@ void ejercicioUno()
   result = sin(param*PI/180); //sin, cos, tan 
   printf("El resultado es: %.61f \n", result);
  // system("pause");
+	cout << "\n" << endl;
 
         cout << "Angulo A: " << anguloA << endl;
         cout << "Angulo B: " << anguloB << endl;
         cout << "Angulo C: " << anguloC << endl;
         cout << "Area: " << area << endl;
 	/////////////////////////
+	cout << "\n" << endl;	
+
 	cout << "Angulo A2: " << anguloA2 << endl;
         cout << "Angulo B2: " << anguloB2 << endl;
         cout << "Angulo C2: " << anguloC2 << endl;
@@ -216,4 +219,3 @@ void ejercicioUno()
 
 
 }
-
