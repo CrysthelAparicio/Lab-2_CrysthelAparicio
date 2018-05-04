@@ -10,9 +10,10 @@ using std::cin;
 using std::string;
 using std::endl;
 
-void ejercicioUno();   
-bool Harshad(int opcion);
-
+void ejercicioUno();
+void ejercicio2();   
+bool Harshad(int);
+void metodo_circulos(int, int, int, int, int, int, int, int);
 
 #define PI 3.14159265
 
@@ -31,10 +32,10 @@ int main()
                 switch (opcion)
                 {
                         case 1:
-                       		 ejercicioUno();            
+                       		ejercicioUno();            
                                 break;
                         case 2:
-                                
+                 		ejercicio2();               
                                 break;
                         case 3:                                
 				Harshad(201)? cout << "si\n" : cout << "no\n"; 
@@ -227,14 +228,124 @@ void ejercicioUno()
 }
 
 // E J E R C I C I O #2
+void ejercicio2(){
+	bool bandera=false;
+	char tecla;
+	int x1=0, x2=0, y1=0, y2=0, w1=0, w2=0, z1=0, z2=0;
+
+	cout<<"\t1.Ingresar numeros escogidos"<<endl;
+	cout<<"\t1.Numero Random"<<endl;
+	cin>>tecla;
+	switch(tecla){
+		case '1':
+			cout<<"\t1.Primer Circulo"<<endl;
+			cout<<"\t1.Ingrese X1: "<<endl;
+			cin>>x1;
+			cout<<"\t1.Ingrese X2: "<<endl;
+                	cin>>x2;
+		
+			cout<<"\t1.Ingrese Y1: "<<endl;
+                	cin>>y1;
+			cout<<"\t1.Ingrese Y2: "<<endl;
+                	cin>>y2;
+
+			cout<<"\t1.Segundo Circulo"<<endl;
+                	cout<<"\t1.Ingrese W1: "<<endl;
+                	cin>>x1;
+                	cout<<"\t1.Ingrese W2: "<<endl;
+                	cin>>x2;
+
+                	cout<<"\t1.Ingrese Z1: "<<endl;
+                	cin>>y1;
+                	cout<<"\t1.Ingrese Z2: "<<endl;
+                	cin>>y2;
+
+			metodo_circulos(x1,x2,y1,y2,w1,w2,z1,z2);
+		break;
+
+		case '2':
+			int c;
+			int e;
+			int cont=0;
+			int cont2=0;
+
+			srand(time(NULL));
+
+			for(c=1; c<=10; c++){
+				while(cont<4){
+					if(cont==0){
+						x1=1+rand()%(11-1);
+						cout<<x1<<endl;
+						cont++;
+					}
+
+					if(cont==1){
+                				x2=1+rand()%(11-1);
+						cout<<x2<<endl;
+                				cont++;
+					}
+
+					if(cont==2){
+                				y1=1+rand()%(11-1);
+                				cout<<y1<<endl;
+                				cont++;
+                			}
+
+					if(cont==3){
+                				y2=1+rand()%(11-1);
+                				cout<<y2<<endl;
+                				cont++;
+                			}
+				}
+			}
+
+			for(e=1; e<=4; e++){
+				if(e==1){
+					w1=1+rand()%(11-1);
+				}	
+				if(e==2){
+                			w2=1+rand()%(11-1);
+               			 }
+
+				if(e==3){
+                			z1=1+rand()%(11-1);
+               			 }
+
+				if(e==4){
+                			z2=1+rand()%(11-1);
+                		}
+			}
+
+	}
+}
+
+void metodo_circulos(int x1, int x2, int y1, int y2, int w1, int w2, int z1, int z2){
+	int distancia=0;
+	int distancia2 =0;
+	int x,y;
+	int k,m;
+
+	x=pow((x2-x1),2);
+	y=pow((y2-y1),2);
+	distancia = sqrt(x+y);
+
+	k=pow((w2-w1),2);
+	m=pow((z2-z1),2);
+	distancia2 = sqrt(k+m);
+
+	cout<<"distancia circulo 1: "+distancia<<endl;
+	cout<<"distancia circulo 2: "+distancia2<<endl;
+
+}
+
 
 
 // E J E R C I C I O #3
 
-	bool Harshad(int n)
-	{
+	bool Harshad(int n){
    		 int sum = 0;
    		 for (int temp = n; temp > 0; temp /= 10)
-            	 sum += temp % 10;
+            	 	sum += temp % 10;
+
    		 return (n % sum == 0);
 	}
