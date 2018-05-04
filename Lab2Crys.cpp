@@ -5,8 +5,14 @@
 #include <stdio.h>
 
 using namespace std;
+using std::cout;
+using std::cin;
+using std::string;
+using std::endl;
 
 void ejercicioUno();   
+bool Harshad(int opcion);
+
 
 #define PI 3.14159265
 
@@ -30,9 +36,9 @@ int main()
                         case 2:
                                 
                                 break;
-                        case 3:
-                                
-                                break;
+                        case 3:                                
+				Harshad(201)? cout << "si\n" : cout << "no\n"; 
+                               break;
                         case 0:
                                 cout << "Saliendo... " << endl;
                                 break;
@@ -45,6 +51,7 @@ int main()
         return 0;
 }
 
+//E J E R C I C I O #1
 void ejercicioUno()
 {
         float tempLadoA = 0;
@@ -61,7 +68,6 @@ void ejercicioUno()
 
         float s = 0;
         float area = 0;
-
 	///////////Triangulo #2
 
 	float tempLadoA2 = 0;
@@ -219,3 +225,16 @@ void ejercicioUno()
 
 
 }
+
+// E J E R C I C I O #2
+
+
+// E J E R C I C I O #3
+
+	bool Harshad(int n)
+	{
+   		 int sum = 0;
+   		 for (int temp = n; temp > 0; temp /= 10)
+            	 sum += temp % 10;
+   		 return (n % sum == 0);
+	}
