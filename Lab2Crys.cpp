@@ -2,6 +2,7 @@
 #include <string>
 #include <stdlib.h>
 #include <math.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -115,57 +116,104 @@ void ejercicioUno()
         if (tempLadoC && tempLadoC2 > tempLadoB && tempLadoC > tempLadoA && tempLadoA2)
         {
                 ladoC = tempLadoC;
-                if (tempLadoB >= tempLadoA)
+		ladoC2 = tempLadoC2;
+                if (tempLadoB && tempLadoB2 >= tempLadoA && tempLadoA2)
                 {
                         ladoB = tempLadoB;
                         ladoA = tempLadoA;
+		////////////////////////
+			ladoB2 = tempLadoB2;
+			ladoA2 = tempLadoA2;
                 }
                 else
                 {
                         ladoB = tempLadoA;
                         ladoA = tempLadoB;
+		////////////////////////
+			ladoB2 = tempLadoA2;
+			ladoA2 = tempLadoB2;
                 }
         }
-        else if (tempLadoB > tempLadoC && tempLadoB > tempLadoA)
+        else if (tempLadoB && tempLadoB2 > tempLadoC && tempLadoB > tempLadoA && tempLadoA2)
         {
                 ladoC = tempLadoB;
-                if (tempLadoC >= tempLadoA)
+		ladoC2 = tempLadoB2;
+
+                if (tempLadoC && tempLadoC2 >= tempLadoA && tempLadoA2)
                 {
                         ladoB = tempLadoC;
                         ladoA = tempLadoA;
+		//////////////////////
+			ladoB2 = tempLadoC2;
+			ladoA2 = tempLadoA2;
                 }
                 else
                 {
                         ladoB = tempLadoA;
                         ladoA = tempLadoC;
+		/////////////////////
+			ladoB2 = tempLadoA2;
+			ladoA2 = tempLadoC2;
                 }
         }
         else
         {
                 ladoC = tempLadoA;
-                if (tempLadoB >= tempLadoC)
+		ladoC2 = tempLadoA2;
+
+                if (tempLadoB && tempLadoB2 >= tempLadoC && tempLadoC2)
                 {
                         ladoB = tempLadoB;
                         ladoA = tempLadoC;
+		////////////////////
+			ladoB2 = tempLadoB2;
+                        ladoA2 = tempLadoC2;
+
                 }
                 else
                 {
                         ladoB = tempLadoC;
                         ladoA = tempLadoB;
+		///////////////////
+			ladoB2 = tempLadoC2;
+                        ladoA2 = tempLadoB2;
                 }
         }
- s = (ladoA + ladoB + ladoC) / 2;
+	s = (ladoA + ladoB + ladoC) / 2;
+	s2 = (ladoA2 + ladoB2 + ladoC2) /2;
+ 
         area = sqrt(s*(s - ladoA)*(s - ladoB)*(s - ladoC));
-        anguloA = acos((ladoA*ladoA - ladoB*ladoB - ladoC*ladoC)/(-2.0*ladoB*ladoC))*180.0/PI;
-        anguloB = acos((ladoB*ladoB - ladoA*ladoA - ladoC*ladoC)/(-2.0*ladoA*ladoC))*180.0/PI;
-        anguloC = acos((ladoC*ladoC - ladoA*ladoA - ladoB*ladoB)/(-2.0*ladoA*ladoB))*180.0/PI;
+	area2 = sqrt(s2*(s2 - ladoA2)*(s2 - ladoB2)*(s2 - ladoC2));
 
-        if (ladoA*ladoA + ladoB*ladoB - ladoC*ladoC == 0)
+        anguloA = acos((ladoA*ladoA - ladoB*ladoB - ladoC*ladoC)/(-2.0*ladoB*ladoC))*180.0/PI;
+	anguloA2 = acos((ladoA2*ladoA2 - ladoB2*ladoB2 - ladoC2*ladoC2)/(-2.0*ladoB2*ladoC2))*180.0/PI;	
+
+        anguloB = acos((ladoB*ladoB - ladoA*ladoA - ladoC*ladoC)/(-2.0*ladoA*ladoC))*180.0/PI;
+	anguloB2 = acos((ladoB2*ladoB2 - ladoA2*ladoA2 - ladoC2*ladoC2)/(-2.0*ladoA2*ladoC2))*180.0/PI;
+
+        anguloC = acos((ladoC*ladoC - ladoA*ladoA - ladoB*ladoB)/(-2.0*ladoA*ladoB))*180.0/PI;
+	anguloC2 = acos((ladoC2*ladoC2 - ladoA2*ladoA2 - ladoB2*ladoB2)/(-2.0*ladoA2*ladoB2))*180.0/PI;
+
+        if (ladoA*ladoA && ladoA2*ladoA2 + ladoB*ladoB && ladoB2*ladoB2 - ladoC*ladoC && ladoC2*ladoC2 == 0)
                 cout << "El triangulo es rectangulo." << endl;
+
+  double param, result;
+  printf("introduce un numero: \n");
+  scanf("%lf", &param);
+  result = sin(param*PI/180); //sin, cos, tan 
+  printf("El resultado es: %.61f \n", result);
+ // system("pause");
 
         cout << "Angulo A: " << anguloA << endl;
         cout << "Angulo B: " << anguloB << endl;
         cout << "Angulo C: " << anguloC << endl;
         cout << "Area: " << area << endl;
+	/////////////////////////
+	cout << "Angulo A2: " << anguloA2 << endl;
+        cout << "Angulo B2: " << anguloB2 << endl;
+        cout << "Angulo C2: " << anguloC2 << endl;
+        cout << "Area2: " << area2 << endl;
+
+
 }
 
